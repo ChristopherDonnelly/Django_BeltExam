@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>Travel Dashboard</title> 
+        {% load static %}  
+            <link rel="stylesheet" href="{% static 'travel_buddy_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">  
+    </head> 
+    <body> 
+        <div id="wrapper"> 
+            <div id="header">
+                <h1>Travel Dashboard</h1>
+                <div id="nav">
+                    <span><em>Home</em></span>
+                    <a href="/logout/">Logout</a>
+                </div>
+            </div>
+            <div id="content_layer">
+                <h2>Hello, {{ user.name }}</h2>
+                <div id="trip_scroller">
+                    <div id="trip_schedules">
+                        <p>Your Trip Schedules</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Destination</th>
+                                    <th>Travel Start Date</th>
+                                    <th>Travel End Date</th>
+                                    <th>Plan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for schedule in schedules %}
+                                    <tr>
+                                        <td>
+                                            <a href="/travels/destination/{{ schedule.id }}/">{{ schedule.destination }}</a>
+                                        </td>
+                                        <td>
+                                            <p>{{ schedule.start_date }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ schedule.end_date }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ schedule.description }}</p>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="all_trips">
+                        <p>Other User's Travel Plans</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Destination</th>
+                                    <th>Travel Start Date</th>
+                                    <th>Travel End Date</th>
+                                    <th>Do You Want to Join?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for plan in trips %}
+                                    <tr>
+                                        <td>
+                                            <p>{{ plan.trip_planner.name }}</p>
+                                        </td>
+                                        <td>
+                                            <a href="/travels/destination/{{ plan.id }}/">{{ plan.destination }}</a>
+                                        </td>
+                                        <td>
+                                            <p>{{ plan.start_date }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ plan.end_date }}</p>
+                                        </td>
+                                        <td>
+                                            <a href="/travels/join/{{ plan.id }}/">Join</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <span>
+                    <a href="/travels/add/">Add Travel Plan</a>
+                </span>
+            </div>
+        </div>
+    </body> 
+</html> 

@@ -1,0 +1,229 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper {
+    position: relative;
+    margin: 50px auto;
+    width: 970px;
+}
+
+#header h1, #header #nav {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#header #nav {
+    float: right;
+    line-height: 2em;
+}
+
+#content_layer {
+    width: 850px;
+    height: 500px;
+    border: 2px inset darkgray;
+    margin: 25px auto;
+    padding: 25px;
+    box-shadow: 3px 3px 5px lightgrey;
+}
+
+#content_layer span#nav {
+    text-align: right;
+    margin-right: 100px;
+}
+
+#show_layer {
+    height: 450px;
+    overflow-y: auto;
+}
+
+a {
+    padding: 5px;
+}
+
+#content_layer p, #content_layer #nav a {
+    text-align: left;
+    padding: 10px;
+}
+
+#content_layer p {
+    font-size: 1.4em;
+}
+
+#content_layer #nav {
+    margin: 50px 0px 0px;
+}
+
+#content_layer input[type="submit"] + #nav {
+    margin: 20px 0px 0px;
+}
+
+#content_layer label {
+    display: block;
+    text-align: right;
+    padding: 10px;
+    font-size: 1.3em;
+}
+
+#content_layer input[type="text"], #content_layer input[type="email"], #content_layer input[type="password"] {
+    width: 300px;
+    font-size: 0.8em;
+    padding: 3px;
+}
+
+#content_layer input[type="date"] {
+    font-size: 0.8em;
+    padding: 3px;
+}
+
+#wrapper>p {
+    width: 250px;
+}
+
+#labels {
+    vertical-align: top;
+    display: inline-block;
+    width: 70%;
+}
+
+#errorLayer {
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 25%;
+    padding-top: 1px;
+}
+
+#content_layer p.error {
+    color: red;
+    font-size: 0.9em;
+    position: absolute;
+    left: -10px;
+}
+p.error::before {
+    content: '*';
+    position: absolute;
+    margin-left: -400px;
+    margin-top: -5px;
+}
+p.destination.error::before, p.description.error::before {
+    margin-left: -448px;
+}
+p.start_date.error::before {
+    margin-left: -378px;
+}
+p.end_date.error::before {
+    margin-left: -352px;
+}
+p.destination.error {
+    top: 7px;
+}
+p.description.error {
+    top: 56px;
+}
+p.start_date.error {
+    top: 108px;
+}
+p.end_date.error {
+    top: 164px;
+}
+
+table {
+    width: 100%;
+}
+
+table, table th {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 5px;
+    text-align: left;
+}
+
+th {
+    background-color: darkslategray;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+td:nth-child(n+4) {
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 115px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+    background-color: white;
+    box-shadow: 3px 3px 10px lightgrey;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px grey;
+    cursor: pointer;
+    color: black;
+    margin: 50px 0px 0px;
+}
+
+input[type="submit"]:hover {
+    border: 1px solid darkgray;
+    background-color: lightskyblue;
+    color: white;
+    box-shadow: 3px 3px 10px lightgrey;
+    text-shadow: 1px 1px 2px grey;
+}
+
+.red {
+    color: red;
+}
+
+#content_layer #nav {
+    margin: 0px 0px 25px;
+    display: block;
+}
+
+#content_layer td p {
+    font-size: 1em;
+    padding: 2px;
+}
+
+#all_trips {
+    padding-bottom: 25px;
+}
+
+#all_trips+a {
+    display: block;
+    text-align: right;
+}
+
+p+h2 {
+    padding-top: 50px;
+}
+
+#trip_scroller {
+    height: 450px;
+    overflow-y: auto;
+}
+
+#joined_scroller {
+    height: 200px;
+    width: 350px;
+    overflow-y: auto;
+}
+
+#content_layer #trip_scroller+span:last-of-type {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>Add Plan</title> 
+        {% load static %}  
+            <link rel="stylesheet" href="{% static 'travel_buddy_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">  
+    </head> 
+    <body> 
+        <div id="wrapper"> 
+            <div id="header">
+                <h1>&nbsp;</h1>
+                <div id="nav">
+                    <a href="/travels/">Home</a>
+                    <a href="/logout/">Logout</a>
+                </div>
+            </div>
+            <div id="content_layer">
+                <h2>Add a Trip</h2>
+                <form action="/travels/add_new_trip/" method="post">
+					{% csrf_token %} 
+					<div id="labels">
+						<label for="destination"><span>Destination:</span>
+							<input type="text" name="destination" id="destination" placeholder="Enter Destination" value="{{ request.session.destination }}"></label>
+						<label for="description"><span>Description:</span>
+							<input type="text" name="description" id="description" placeholder="Enter Description"></label>
+						<label for="start_date"><span>Travel Date From:</span>
+							<input type="date" name="start_date" id="start_date" placeholder="Enter Start Date"></label>
+						<label for="end_date"><span>Travel Date To:</span>
+							<input type="date" name="end_date" id="end_date" placeholder="Enter End Date"></label>
+					</div>
+					<div id="errorLayer">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+									<p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+										{{ message }}
+									</p>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+					</div>
+					<span id="nav">
+						<input type='submit' value='Add'>
+					</span>
+				</form>
+            </div>
+        </div>
+    </body> 
+</html> 
